@@ -116,3 +116,46 @@ obj.name = "hahaha";
 console.log(obj);//{ age: 23, name: 'hahaha' }
 console.log(obj5)//{ age: 23, name: 'song' }
 
+
+/*
+ * 类的继承
+ */
+function Teacher(){
+	this.name = "keke";
+};
+
+/*
+ * Teacher.prototype其实就是在内存中建立一个新的对象，然后让函数通过__proto__继承该对象；
+ * 如下两种方式等价
+ */
+//Teacher.prototype.age = 1;
+Teacher.__proto__ = {
+	age:1
+};
+/*----------------*/
+
+function Student(){
+	this.sex = "male"
+}
+/*
+ * 根据上面克制prototy其实是将引用指向内存中的一个新的对象，所以Student.prototype和Teacher.prototype
+ * 共同指向同一个对象，其中一个修改，另外一个也会发生修改
+ */
+Student.prototype = Teacher.prototype;
+
+Student.prototype.age = 3;
+var zs = new Student();
+console.log(zs)
+var tc = new Teacher();
+console.log(tc)
+
+/**
+ * 想让Student类继承Teacher类的最好的方法
+ */
+Student.prototype = Object.create(Teacher.prototype);
+Student.prototype.constructor = Student;
+
+var stu = new Student();
+
+console.log(stu)
+
