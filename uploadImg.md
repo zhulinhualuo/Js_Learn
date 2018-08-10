@@ -1,7 +1,10 @@
-HTML代码：
+# HTML代码：
+```
 <input id="file" type="file">
-
-JS代码：
+```
+***
+# JS代码：
+```
 <script>
     var eleFile = document.querySelector('#file')
     eleFile.addEventListener('change', chooseImage(e))
@@ -58,3 +61,4 @@ JS代码：
       }
     }
   </script>
+```
