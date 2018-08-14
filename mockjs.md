@@ -1,4 +1,5 @@
 #mockjs的使用
+***
 ##建文件user.js存储mock到的数据
 ```
   import Mock from "mockjs"
