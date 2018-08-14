@@ -1,6 +1,6 @@
-#mockjs的使用
+#mockjs的使用#
 ***
-##建文件user.js存储mock到的数据
+##建文件user.js存储mock到的数据##
 ```
   import Mock from "mockjs"
   
@@ -24,7 +24,7 @@
   export { Users, Goods }
 ```
 
-##建立index.js,通过axios-mock-adapter生成代理api地址
+##建立index.js,通过axios-mock-adapter生成代理api地址##
 ```
   var axios = require('axios')
   var MockAdapter = require('axios-mock-adapter')
@@ -51,20 +51,20 @@
     }
   }
 ```
-##api.js对api的统一调用
+##api.js对api的统一调用##
 ```
   import axios from 'axios' 
   let base = ''
   export const requestUsers = params => axios.get(`${base}/users`).then(res => res.data)
   export const requestGoods = params => { return axios.get(`${base}/goods`, { params: params }).then(res => res.data) }
 ```
-###在main.js中对mock进行初始化
+##在main.js中对mock进行初始化##
 ```
 import Mock from './mock'
 Mock.init()
 ```
 
-###最后在页面调用时
+##最后在页面调用时##
 ```
 requestUsers().then((res) => {
     console.log(res)
